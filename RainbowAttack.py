@@ -49,7 +49,7 @@ def f(k, i):
     cipher = AES.new(k, AES.MODE_CBC, IV)
     plaintext = pkcs7_pad(plaintext, BLOCK_SIZE)
     ciphertext = cipher.encrypt(plaintext)
-    return (int.from_bytes(ciphertext, byteorder='big') + i ) % 2**24
+    return (int.from_bytes(ciphertext, byteorder='little') + i ) % 2**24
 
 
 def coverage_in_rainbow_table(m_fin: int, t_fin: int) -> list:
